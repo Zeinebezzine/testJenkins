@@ -6,7 +6,7 @@ def client():
     with app.test_client() as client:
         yield client
 
-def test_index(client):
-    response = client.get('/')
+def test_message(client):
+    response = client.get('/api/message')
     assert response.status_code == 200
-    assert b"Hello" in response.data  # adapte selon ta réponse Flask
+    assert b"Hello" in response.data
